@@ -5,6 +5,6 @@ df = pd.read_csv("df_nnz.csv")
 
 
 df_nan = df.isna().mean().sort_values(ascending = False)
-#print(df_nan.head(10))
+
 
 #print(df.dtypes)

@@ -7,5 +7,9 @@ def to_numeric_column(df, column):
 df = to_numeric_column(df, 'Vmax')
 df = to_numeric_column(df, 'Km')
 
-print(df.dtypes)
+#print(df.dtypes)
 
+
+df = df.dropna(subset=['Vmax', 'Km'], axis =0)
+df_nan = df.isna().mean().sort_values(ascending = False)
+print(df_nan.head(10))
