@@ -15,7 +15,10 @@ df_nan = df.isna().mean().sort_values(ascending = False)
 
 df_colums = ['ph','Complexity','temp']
 nan_rows = df[df[df_colums].isnull().any(axis=1)]
-print(nan_rows[df_colums])
+# print(nan_rows[df_colums])
 df = df.dropna(axis =0)
 df_nan = df.isna().mean().sort_values(ascending = False)
-print(df_nan.head(10))
+# print(df_nan.head(10))
+
+
+print(df[df.duplicated ()])
