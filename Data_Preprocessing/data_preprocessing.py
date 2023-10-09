@@ -1,4 +1,7 @@
 import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("../Data_Analysis/df_nnz.csv")
 def to_numeric_column(df, column):
@@ -21,4 +24,8 @@ df_nan = df.isna().mean().sort_values(ascending = False)
 # print(df_nan.head(10))
 
 
-print(df[df.duplicated ()])
+#print(df[df.duplicated ()])
+
+df.loc[:, 'Vmax_log'] = np.log10(df['Vmax'])
+sns.boxplot(x=df['Vmax_log'])
+plt.show()
