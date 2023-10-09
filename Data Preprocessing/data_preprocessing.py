@@ -7,4 +7,5 @@ def to_numeric_column(df, column):
 df = to_numeric_column(df, 'Vmax')
 df = to_numeric_column(df, 'Km')
 
-print(df.dtypes)
+print(df.shape)
+print(df.describe())
