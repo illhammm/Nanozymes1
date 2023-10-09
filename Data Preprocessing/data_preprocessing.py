@@ -1,16 +1,10 @@
-# import csv
-#
-# import pandas as pd
-# x = pd.read_csv("/Users/Home/Desktop/df_nnz.csv")
-# print(x)
-# for line in x:
-#     #вывод в одну строку названий шапок массива данных для рассмотрения
-#     print(line[0], end=' ')
+import pandas as pd
 
-# import csv
-# with open("../Data Analysis/df_nnz.csv", "r") as f:
-#     reader = csv.DictReader(f)
-#     for line in reader:
-#         #тут вывод с ключом значения и словарем
-#         print(line, end='\n')
-#
+df = pd.read_csv("../Data Analysis/df_nnz.csv")
+def to_numeric_column(df, column):
+    df[column] = pd.to_numeric(df[column], errors='coerce')
+    return df
+df = to_numeric_column(df, 'Vmax')
+df = to_numeric_column(df, 'Km')
+
+print(df.dtypes)
