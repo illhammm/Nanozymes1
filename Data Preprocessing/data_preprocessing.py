@@ -7,10 +7,10 @@
 #     #вывод в одну строку названий шапок массива данных для рассмотрения
 #     print(line[0], end=' ')
 
-import csv
-with open("../df_nnz.csv", "r") as f:
-    reader = csv.DictReader(f)
-    for line in reader:
-        #тут вывод с ключом значения и словарем
-        print(line, end='\n')
-
+# import csv
+# with open("../Data Analysis/df_nnz.csv", "r") as f:
+#     reader = csv.DictReader(f)
+#     for line in reader:
+#         #тут вывод с ключом значения и словарем
+#         print(line, end='\n')
+#
