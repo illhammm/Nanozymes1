@@ -28,4 +28,17 @@ df_nan = df.isna().mean().sort_values(ascending = False)
 
 df.loc[:, 'Vmax_log'] = np.log10(df['Vmax'])
 sns.boxplot(x=df['Vmax_log'])
-plt.show()
+#plt.show()
+#команда выводит boxplot
+
+def counts_quantil(column):
+    Q1 = column.quantile(0.25)
+    Q3 = column.quantile(0.75)
+    IQR = Q3 - Q1
+    outliers = ((column < (Q1 - 1.5 * IQR)) | (column > (Q3 + 1.5 * IQR)))
+    num_outliers = outliers.sum()
+    filtered_data = column[~outliers]
+
+    return num_outliers
+
+print(counts_quantil(df['Km']))
