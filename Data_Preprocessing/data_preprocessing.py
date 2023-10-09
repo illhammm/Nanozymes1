@@ -41,4 +41,17 @@ def counts_quantil(column):
 
     return num_outliers
 
+
+
+def del_quantil(df, column):
+    Q1 = df[column].quantile(0.25)
+    Q3 = df[column].quantile(0.75)
+    IQR = Q3 - Q1
+
+    df = df[~((df[column] < (Q1 - 1.5 * IQR)) | (df[column] > (Q3 + 1.5 * IQR)))]
+
+    return df
+
+df = del_quantil(df, 'Km')
 print(counts_quantil(df['Km']))
+print(counts_quantil(df['Vmax_log']))
