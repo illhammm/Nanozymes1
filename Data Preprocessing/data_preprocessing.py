@@ -5,10 +5,10 @@
 # print(x)
 # for line in x:
 #     #вывод в одну строку названий шапок массива данных для рассмотрения
-#     print(line[0::], end=' ')
+#     print(line[0], end=' ')
 
 import csv
-with open("df_nnz.csv", "r") as f:
+with open("../df_nnz.csv", "r") as f:
     reader = csv.DictReader(f)
     for line in reader:
         #тут вывод с ключом значения и словарем
